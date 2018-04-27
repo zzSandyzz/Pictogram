@@ -40,7 +40,9 @@ public class MainActivity extends AppCompatActivity {
 
                 catBlowUpIntent.putExtra("cat", position);
 
-                setResult(Activity.RESULT_OK, catBlowUpIntent);
+                startActivity(catBlowUpIntent);
+
+               // setResult(Activity.RESULT_OK, catBlowUpIntent);
 
 
 
@@ -57,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
                 //setResult(Activity.RESULT_OK, newCityIntent);
 
                 // This destroys the ChangeCityController.
-                finish();
+              //  finish();
                 //return true;
 
 

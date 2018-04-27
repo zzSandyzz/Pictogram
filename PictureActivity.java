@@ -35,17 +35,17 @@ public class PictureActivity extends  AppCompatActivity {
         setContentView(R.layout.picture_activity);
 
          ImageView imageView = findViewById(R.id.imageView);
-        ImageButton backButton = findViewById(R.id.backButton);
+       // ImageButton backButton = findViewById(R.id.backButton);
 
 
 
-        backButton.setOnClickListener(new View.OnClickListener() {
+       /* backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // Go back and destroy the ChangeCityController
                 finish();
             }
-        });
+        });*/
     }
 
     @Override
