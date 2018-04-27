@@ -46,37 +46,44 @@ public class PictureActivity extends  AppCompatActivity {
                 finish();
             }
         });*/
+        String position = getIntent().getStringExtra("cat");
+
+
+
+        Cat cat = new Cat(position);
+
+        Picasso.get().load(cat.getUrl()).into(imageView);
     }
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-
-
-
-
-            if (resultCode == RESULT_OK) {
-                String position = data.getStringExtra("cat");
-
-                ImageView imageView =findViewById(R.id.imageView);
-
-                Cat cat = new Cat(position);
-
-                Picasso.get().load(cat.getUrl()).into(imageView);
-
-                /*
-                   Cat cat = cats.get(position);
-        holder.catImage.setOnClickListener(internalClickListener);
-        holder.catImage.setTag(cat);
-        Picasso.get().load(cat.getUrl()).into(holder.catImage);
-                 */
-
-
-
-
-
-
-            }
-
-    }
+//
+//    @Override
+//    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+//        super.onActivityResult(requestCode, resultCode, data);
+//
+//
+//
+//
+//            if (resultCode == RESULT_OK) {
+//                String position = data.getStringExtra("cat");
+//
+//                ImageView imageView =findViewById(R.id.imageView);
+//
+//                Cat cat = new Cat(position);
+//
+//                Picasso.get().load(cat.getUrl()).into(imageView);
+//
+//                /*
+//                   Cat cat = cats.get(position);
+//        holder.catImage.setOnClickListener(internalClickListener);
+//        holder.catImage.setTag(cat);
+//        Picasso.get().load(cat.getUrl()).into(holder.catImage);
+//                 */
+//
+//
+//
+//
+//
+//
+//            }
+//
+//    }
 }

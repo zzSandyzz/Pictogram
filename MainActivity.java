@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
 
                 Intent catBlowUpIntent = new Intent(MainActivity.this,PictureActivity.class);
 
-                catBlowUpIntent.putExtra("cat", position);
+                catBlowUpIntent.putExtra("cat", cat.getUrl());
 
                 startActivity(catBlowUpIntent);
 
