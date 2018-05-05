@@ -86,7 +86,7 @@ public class MainActivity extends AppCompatActivity {
         for (int a = 0; a < pics.size(); a++){
             urlList.add(a,Pic.getUrl());
         }
-return urlList
+return urlList;
     }
 
 
