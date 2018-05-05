@@ -13,13 +13,21 @@ import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
 
+    public static ArrayList<Pic> pics = new ArrayList<>();
+    public static ArrayList<Pic>  oldPics = new ArrayList<>();
+    public  ArrayList<String> urlList =new ArrayList<>();
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
         RecyclerView recyclerView = findViewById(R.id.recyclerView);
         RecyclerView.LayoutManager layoutManager;
+
+
 
         layoutManager = new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
 
@@ -37,7 +45,12 @@ public class MainActivity extends AppCompatActivity {
 
             }
         };
-        recyclerView.setAdapter(new PicAdapter(generatePics(), onItemClickListener));
+
+      //  if (savedInstanceState!=null){
+      //      recyclerView.setAdapter(new PicAdapter(getOldPics(), onItemClickListener));
+      //  }else {
+            recyclerView.setAdapter(new PicAdapter(generatePics(), onItemClickListener));
+       // }
 
     }
 
@@ -45,397 +58,62 @@ public class MainActivity extends AppCompatActivity {
 
        Random random=new Random();
 
-       int a = 100 + random.nextInt(600-200);
+       int a = 100 + random.nextInt(500-100);
 
         return a;
     }
 
 
     @NonNull
-    public static List<Pic> generatePics() {
-        List<Pic> pics = new ArrayList<>();
-        pics.add(new Pic("https://picsum.photos/"+newDimension()+"/"+newDimension()+"/?random"));
+    public  static  List<Pic> generatePics() {
+
+
+        pics.add(new Pic("https://picsum.photos/" + newDimension() + "/" + newDimension() + "/?random"));
+       // urlList.add( Pic.getUrl());
+        pics.add(new Pic("https://picsum.photos/" + newDimension() + "/" + newDimension() + "/?random"));
+      //  urlList.add( Pic.getUrl());
+        pics.add(new Pic("https://picsum.photos/" + newDimension() + "/" + newDimension() + "/?random"));
+       // urlList.add( Pic.getUrl());
+        pics.add(new Pic("https://picsum.photos/" + newDimension() + "/" + newDimension() + "/?random"));
+       // urlList.add( Pic.getUrl());
+        pics.add(new Pic("https://picsum.photos/" + newDimension() + "/" + newDimension() + "/?random"));
+        //urlList.add( Pic.getUrl());
 
-        pics.add(new Pic("https://picsum.photos/"+newDimension()+"/"+newDimension()+"/?random"));
-
-        pics.add(new Pic("https://picsum.photos/"+newDimension()+"/"+newDimension()+"/?random"));
-
-        pics.add(new Pic("https://picsum.photos/"+newDimension()+"/"+newDimension()+"/?random"));
-
-        pics.add(new Pic("https://picsum.photos/"+newDimension()+"/"+newDimension()+"/?random"));
-
-        pics.add(new Pic("https://picsum.photos/"+newDimension()+"/"+newDimension()+"/?random"));
-
-        pics.add(new Pic("https://picsum.photos/"+newDimension()+"/"+newDimension()+"/?random"));
-
-        pics.add(new Pic("https://picsum.photos/"+newDimension()+"/"+newDimension()+"/?random"));
-
-        pics.add(new Pic("https://picsum.photos/"+newDimension()+"/"+newDimension()+"/?random"));
-
-        pics.add(new Pic("https://picsum.photos/"+newDimension()+"/"+newDimension()+"/?random"));
-        pics.add(new Pic("https://picsum.photos/"+newDimension()+"/"+newDimension()+"/?random"));
-
-        pics.add(new Pic("https://picsum.photos/"+newDimension()+"/"+newDimension()+"/?random"));
-
-        pics.add(new Pic("https://picsum.photos/"+newDimension()+"/"+newDimension()+"/?random"));
-
-        pics.add(new Pic("https://picsum.photos/"+newDimension()+"/"+newDimension()+"/?random"));
-
-        pics.add(new Pic("https://picsum.photos/"+newDimension()+"/"+newDimension()+"/?random"));
-
-        pics.add(new Pic("https://picsum.photos/"+newDimension()+"/"+newDimension()+"/?random"));
-
-        pics.add(new Pic("https://picsum.photos/"+newDimension()+"/"+newDimension()+"/?random"));
-
-        pics.add(new Pic("https://picsum.photos/"+newDimension()+"/"+newDimension()+"/?random"));
-
-        pics.add(new Pic("https://picsum.photos/"+newDimension()+"/"+newDimension()+"/?random"));
-
-        pics.add(new Pic("https://picsum.photos/"+newDimension()+"/"+newDimension()+"/?random"));
-        pics.add(new Pic("https://picsum.photos/"+newDimension()+"/"+newDimension()+"/?random"));
-
-        pics.add(new Pic("https://picsum.photos/"+newDimension()+"/"+newDimension()+"/?random"));
-
-        pics.add(new Pic("https://picsum.photos/"+newDimension()+"/"+newDimension()+"/?random"));
-
-        pics.add(new Pic("https://picsum.photos/"+newDimension()+"/"+newDimension()+"/?random"));
-
-        pics.add(new Pic("https://picsum.photos/"+newDimension()+"/"+newDimension()+"/?random"));
-
-        pics.add(new Pic("https://picsum.photos/"+newDimension()+"/"+newDimension()+"/?random"));
-
-        pics.add(new Pic("https://picsum.photos/"+newDimension()+"/"+newDimension()+"/?random"));
-
-        pics.add(new Pic("https://picsum.photos/"+newDimension()+"/"+newDimension()+"/?random"));
-
-        pics.add(new Pic("https://picsum.photos/"+newDimension()+"/"+newDimension()+"/?random"));
-
-        pics.add(new Pic("https://picsum.photos/"+newDimension()+"/"+newDimension()+"/?random"));
-        pics.add(new Pic("https://picsum.photos/"+newDimension()+"/"+newDimension()+"/?random"));
-
-        pics.add(new Pic("https://picsum.photos/"+newDimension()+"/"+newDimension()+"/?random"));
-
-        pics.add(new Pic("https://picsum.photos/"+newDimension()+"/"+newDimension()+"/?random"));
-
-        pics.add(new Pic("https://picsum.photos/"+newDimension()+"/"+newDimension()+"/?random"));
-
-        pics.add(new Pic("https://picsum.photos/"+newDimension()+"/"+newDimension()+"/?random"));
-
-        pics.add(new Pic("https://picsum.photos/"+newDimension()+"/"+newDimension()+"/?random"));
-
-        pics.add(new Pic("https://picsum.photos/"+newDimension()+"/"+newDimension()+"/?random"));
-
-        pics.add(new Pic("https://picsum.photos/"+newDimension()+"/"+newDimension()+"/?random"));
-
-        pics.add(new Pic("https://picsum.photos/"+newDimension()+"/"+newDimension()+"/?random"));
-
-        pics.add(new Pic("https://picsum.photos/"+newDimension()+"/"+newDimension()+"/?random"));
-        pics.add(new Pic("https://picsum.photos/"+newDimension()+"/"+newDimension()+"/?random"));
-
-        pics.add(new Pic("https://picsum.photos/"+newDimension()+"/"+newDimension()+"/?random"));
-
-        pics.add(new Pic("https://picsum.photos/"+newDimension()+"/"+newDimension()+"/?random"));
-
-        pics.add(new Pic("https://picsum.photos/"+newDimension()+"/"+newDimension()+"/?random"));
-
-        pics.add(new Pic("https://picsum.photos/"+newDimension()+"/"+newDimension()+"/?random"));
-
-        pics.add(new Pic("https://picsum.photos/"+newDimension()+"/"+newDimension()+"/?random"));
-
-        pics.add(new Pic("https://picsum.photos/"+newDimension()+"/"+newDimension()+"/?random"));
-
-        pics.add(new Pic("https://picsum.photos/"+newDimension()+"/"+newDimension()+"/?random"));
-
-        pics.add(new Pic("https://picsum.photos/"+newDimension()+"/"+newDimension()+"/?random"));
-
-        pics.add(new Pic("https://picsum.photos/"+newDimension()+"/"+newDimension()+"/?random"));
-        pics.add(new Pic("https://picsum.photos/"+newDimension()+"/"+newDimension()+"/?random"));
-
-        pics.add(new Pic("https://picsum.photos/"+newDimension()+"/"+newDimension()+"/?random"));
-
-        pics.add(new Pic("https://picsum.photos/"+newDimension()+"/"+newDimension()+"/?random"));
-
-        pics.add(new Pic("https://picsum.photos/"+newDimension()+"/"+newDimension()+"/?random"));
-
-        pics.add(new Pic("https://picsum.photos/"+newDimension()+"/"+newDimension()+"/?random"));
-
-        pics.add(new Pic("https://picsum.photos/"+newDimension()+"/"+newDimension()+"/?random"));
-
-        pics.add(new Pic("https://picsum.photos/"+newDimension()+"/"+newDimension()+"/?random"));
-
-        pics.add(new Pic("https://picsum.photos/"+newDimension()+"/"+newDimension()+"/?random"));
-
-        pics.add(new Pic("https://picsum.photos/"+newDimension()+"/"+newDimension()+"/?random"));
-
-        pics.add(new Pic("https://picsum.photos/"+newDimension()+"/"+newDimension()+"/?random"));
-        pics.add(new Pic("https://picsum.photos/"+newDimension()+"/"+newDimension()+"/?random"));
-
-        pics.add(new Pic("https://picsum.photos/"+newDimension()+"/"+newDimension()+"/?random"));
-
-        pics.add(new Pic("https://picsum.photos/"+newDimension()+"/"+newDimension()+"/?random"));
-
-        pics.add(new Pic("https://picsum.photos/"+newDimension()+"/"+newDimension()+"/?random"));
-
-        pics.add(new Pic("https://picsum.photos/"+newDimension()+"/"+newDimension()+"/?random"));
-
-        pics.add(new Pic("https://picsum.photos/"+newDimension()+"/"+newDimension()+"/?random"));
-
-        pics.add(new Pic("https://picsum.photos/"+newDimension()+"/"+newDimension()+"/?random"));
-
-        pics.add(new Pic("https://picsum.photos/"+newDimension()+"/"+newDimension()+"/?random"));
-
-        pics.add(new Pic("https://picsum.photos/"+newDimension()+"/"+newDimension()+"/?random"));
-
-        pics.add(new Pic("https://picsum.photos/"+newDimension()+"/"+newDimension()+"/?random"));
-        pics.add(new Pic("https://picsum.photos/"+newDimension()+"/"+newDimension()+"/?random"));
-
-        pics.add(new Pic("https://picsum.photos/"+newDimension()+"/"+newDimension()+"/?random"));
-
-        pics.add(new Pic("https://picsum.photos/"+newDimension()+"/"+newDimension()+"/?random"));
-
-        pics.add(new Pic("https://picsum.photos/"+newDimension()+"/"+newDimension()+"/?random"));
-
-        pics.add(new Pic("https://picsum.photos/"+newDimension()+"/"+newDimension()+"/?random"));
-
-        pics.add(new Pic("https://picsum.photos/"+newDimension()+"/"+newDimension()+"/?random"));
-
-        pics.add(new Pic("https://picsum.photos/"+newDimension()+"/"+newDimension()+"/?random"));
-
-        pics.add(new Pic("https://picsum.photos/"+newDimension()+"/"+newDimension()+"/?random"));
-
-        pics.add(new Pic("https://picsum.photos/"+newDimension()+"/"+newDimension()+"/?random"));
-
-        pics.add(new Pic("https://picsum.photos/"+newDimension()+"/"+newDimension()+"/?random"));
-        pics.add(new Pic("https://picsum.photos/"+newDimension()+"/"+newDimension()+"/?random"));
-
-        pics.add(new Pic("https://picsum.photos/"+newDimension()+"/"+newDimension()+"/?random"));
-
-        pics.add(new Pic("https://picsum.photos/"+newDimension()+"/"+newDimension()+"/?random"));
-
-        pics.add(new Pic("https://picsum.photos/"+newDimension()+"/"+newDimension()+"/?random"));
-
-        pics.add(new Pic("https://picsum.photos/"+newDimension()+"/"+newDimension()+"/?random"));
-
-        pics.add(new Pic("https://picsum.photos/"+newDimension()+"/"+newDimension()+"/?random"));
-
-        pics.add(new Pic("https://picsum.photos/"+newDimension()+"/"+newDimension()+"/?random"));
-
-        pics.add(new Pic("https://picsum.photos/"+newDimension()+"/"+newDimension()+"/?random"));
-
-        pics.add(new Pic("https://picsum.photos/"+newDimension()+"/"+newDimension()+"/?random"));
-
-        pics.add(new Pic("https://picsum.photos/"+newDimension()+"/"+newDimension()+"/?random"));
-        pics.add(new Pic("https://picsum.photos/"+newDimension()+"/"+newDimension()+"/?random"));
-
-        pics.add(new Pic("https://picsum.photos/"+newDimension()+"/"+newDimension()+"/?random"));
-
-        pics.add(new Pic("https://picsum.photos/"+newDimension()+"/"+newDimension()+"/?random"));
-
-        pics.add(new Pic("https://picsum.photos/"+newDimension()+"/"+newDimension()+"/?random"));
-
-        pics.add(new Pic("https://picsum.photos/"+newDimension()+"/"+newDimension()+"/?random"));
-
-        pics.add(new Pic("https://picsum.photos/"+newDimension()+"/"+newDimension()+"/?random"));
-
-        pics.add(new Pic("https://picsum.photos/"+newDimension()+"/"+newDimension()+"/?random"));
-
-        pics.add(new Pic("https://picsum.photos/"+newDimension()+"/"+newDimension()+"/?random"));
-
-        pics.add(new Pic("https://picsum.photos/"+newDimension()+"/"+newDimension()+"/?random"));
-
-        pics.add(new Pic("https://picsum.photos/"+newDimension()+"/"+newDimension()+"/?random"));
-        pics.add(new Pic("https://picsum.photos/"+newDimension()+"/"+newDimension()+"/?random"));
-
-        pics.add(new Pic("https://picsum.photos/"+newDimension()+"/"+newDimension()+"/?random"));
-
-        pics.add(new Pic("https://picsum.photos/"+newDimension()+"/"+newDimension()+"/?random"));
-
-        pics.add(new Pic("https://picsum.photos/"+newDimension()+"/"+newDimension()+"/?random"));
-
-        pics.add(new Pic("https://picsum.photos/"+newDimension()+"/"+newDimension()+"/?random"));
-
-        pics.add(new Pic("https://picsum.photos/"+newDimension()+"/"+newDimension()+"/?random"));
-
-        pics.add(new Pic("https://picsum.photos/"+newDimension()+"/"+newDimension()+"/?random"));
-
-        pics.add(new Pic("https://picsum.photos/"+newDimension()+"/"+newDimension()+"/?random"));
-
-        pics.add(new Pic("https://picsum.photos/"+newDimension()+"/"+newDimension()+"/?random"));
-
-        pics.add(new Pic("https://picsum.photos/"+newDimension()+"/"+newDimension()+"/?random"));
-        pics.add(new Pic("https://picsum.photos/"+newDimension()+"/"+newDimension()+"/?random"));
-
-        pics.add(new Pic("https://picsum.photos/"+newDimension()+"/"+newDimension()+"/?random"));
-
-        pics.add(new Pic("https://picsum.photos/"+newDimension()+"/"+newDimension()+"/?random"));
-
-        pics.add(new Pic("https://picsum.photos/"+newDimension()+"/"+newDimension()+"/?random"));
-
-        pics.add(new Pic("https://picsum.photos/"+newDimension()+"/"+newDimension()+"/?random"));
-
-        pics.add(new Pic("https://picsum.photos/"+newDimension()+"/"+newDimension()+"/?random"));
-
-        pics.add(new Pic("https://picsum.photos/"+newDimension()+"/"+newDimension()+"/?random"));
-
-        pics.add(new Pic("https://picsum.photos/"+newDimension()+"/"+newDimension()+"/?random"));
-
-        pics.add(new Pic("https://picsum.photos/"+newDimension()+"/"+newDimension()+"/?random"));
-
-        pics.add(new Pic("https://picsum.photos/"+newDimension()+"/"+newDimension()+"/?random"));
-        pics.add(new Pic("https://picsum.photos/"+newDimension()+"/"+newDimension()+"/?random"));
-
-        pics.add(new Pic("https://picsum.photos/"+newDimension()+"/"+newDimension()+"/?random"));
-
-        pics.add(new Pic("https://picsum.photos/"+newDimension()+"/"+newDimension()+"/?random"));
-
-        pics.add(new Pic("https://picsum.photos/"+newDimension()+"/"+newDimension()+"/?random"));
-
-        pics.add(new Pic("https://picsum.photos/"+newDimension()+"/"+newDimension()+"/?random"));
-
-        pics.add(new Pic("https://picsum.photos/"+newDimension()+"/"+newDimension()+"/?random"));
-
-        pics.add(new Pic("https://picsum.photos/"+newDimension()+"/"+newDimension()+"/?random"));
-
-        pics.add(new Pic("https://picsum.photos/"+newDimension()+"/"+newDimension()+"/?random"));
-
-        pics.add(new Pic("https://picsum.photos/"+newDimension()+"/"+newDimension()+"/?random"));
-
-        pics.add(new Pic("https://picsum.photos/"+newDimension()+"/"+newDimension()+"/?random"));
-        pics.add(new Pic("https://picsum.photos/"+newDimension()+"/"+newDimension()+"/?random"));
-
-        pics.add(new Pic("https://picsum.photos/"+newDimension()+"/"+newDimension()+"/?random"));
-
-        pics.add(new Pic("https://picsum.photos/"+newDimension()+"/"+newDimension()+"/?random"));
-
-        pics.add(new Pic("https://picsum.photos/"+newDimension()+"/"+newDimension()+"/?random"));
-
-        pics.add(new Pic("https://picsum.photos/"+newDimension()+"/"+newDimension()+"/?random"));
-
-        pics.add(new Pic("https://picsum.photos/"+newDimension()+"/"+newDimension()+"/?random"));
-
-        pics.add(new Pic("https://picsum.photos/"+newDimension()+"/"+newDimension()+"/?random"));
-
-        pics.add(new Pic("https://picsum.photos/"+newDimension()+"/"+newDimension()+"/?random"));
-
-        pics.add(new Pic("https://picsum.photos/"+newDimension()+"/"+newDimension()+"/?random"));
-
-        pics.add(new Pic("https://picsum.photos/"+newDimension()+"/"+newDimension()+"/?random"));
-        pics.add(new Pic("https://picsum.photos/"+newDimension()+"/"+newDimension()+"/?random"));
-
-        pics.add(new Pic("https://picsum.photos/"+newDimension()+"/"+newDimension()+"/?random"));
-
-        pics.add(new Pic("https://picsum.photos/"+newDimension()+"/"+newDimension()+"/?random"));
-
-        pics.add(new Pic("https://picsum.photos/"+newDimension()+"/"+newDimension()+"/?random"));
-
-        pics.add(new Pic("https://picsum.photos/"+newDimension()+"/"+newDimension()+"/?random"));
-
-        pics.add(new Pic("https://picsum.photos/"+newDimension()+"/"+newDimension()+"/?random"));
-
-        pics.add(new Pic("https://picsum.photos/"+newDimension()+"/"+newDimension()+"/?random"));
-
-        pics.add(new Pic("https://picsum.photos/"+newDimension()+"/"+newDimension()+"/?random"));
-
-        pics.add(new Pic("https://picsum.photos/"+newDimension()+"/"+newDimension()+"/?random"));
-
-        pics.add(new Pic("https://picsum.photos/"+newDimension()+"/"+newDimension()+"/?random"));
-        pics.add(new Pic("https://picsum.photos/"+newDimension()+"/"+newDimension()+"/?random"));
-
-        pics.add(new Pic("https://picsum.photos/"+newDimension()+"/"+newDimension()+"/?random"));
-
-        pics.add(new Pic("https://picsum.photos/"+newDimension()+"/"+newDimension()+"/?random"));
-
-        pics.add(new Pic("https://picsum.photos/"+newDimension()+"/"+newDimension()+"/?random"));
-
-        pics.add(new Pic("https://picsum.photos/"+newDimension()+"/"+newDimension()+"/?random"));
-
-        pics.add(new Pic("https://picsum.photos/"+newDimension()+"/"+newDimension()+"/?random"));
-
-        pics.add(new Pic("https://picsum.photos/"+newDimension()+"/"+newDimension()+"/?random"));
-
-        pics.add(new Pic("https://picsum.photos/"+newDimension()+"/"+newDimension()+"/?random"));
-
-        pics.add(new Pic("https://picsum.photos/"+newDimension()+"/"+newDimension()+"/?random"));
-
-        pics.add(new Pic("https://picsum.photos/"+newDimension()+"/"+newDimension()+"/?random"));
-        pics.add(new Pic("https://picsum.photos/"+newDimension()+"/"+newDimension()+"/?random"));
-
-        pics.add(new Pic("https://picsum.photos/"+newDimension()+"/"+newDimension()+"/?random"));
-
-        pics.add(new Pic("https://picsum.photos/"+newDimension()+"/"+newDimension()+"/?random"));
-
-        pics.add(new Pic("https://picsum.photos/"+newDimension()+"/"+newDimension()+"/?random"));
-
-        pics.add(new Pic("https://picsum.photos/"+newDimension()+"/"+newDimension()+"/?random"));
-
-        pics.add(new Pic("https://picsum.photos/"+newDimension()+"/"+newDimension()+"/?random"));
-
-        pics.add(new Pic("https://picsum.photos/"+newDimension()+"/"+newDimension()+"/?random"));
-
-        pics.add(new Pic("https://picsum.photos/"+newDimension()+"/"+newDimension()+"/?random"));
-
-        pics.add(new Pic("https://picsum.photos/"+newDimension()+"/"+newDimension()+"/?random"));
-
-        pics.add(new Pic("https://picsum.photos/"+newDimension()+"/"+newDimension()+"/?random"));
-        pics.add(new Pic("https://picsum.photos/"+newDimension()+"/"+newDimension()+"/?random"));
-
-        pics.add(new Pic("https://picsum.photos/"+newDimension()+"/"+newDimension()+"/?random"));
-
-        pics.add(new Pic("https://picsum.photos/"+newDimension()+"/"+newDimension()+"/?random"));
-
-        pics.add(new Pic("https://picsum.photos/"+newDimension()+"/"+newDimension()+"/?random"));
-
-        pics.add(new Pic("https://picsum.photos/"+newDimension()+"/"+newDimension()+"/?random"));
-
-        pics.add(new Pic("https://picsum.photos/"+newDimension()+"/"+newDimension()+"/?random"));
-
-        pics.add(new Pic("https://picsum.photos/"+newDimension()+"/"+newDimension()+"/?random"));
-
-        pics.add(new Pic("https://picsum.photos/"+newDimension()+"/"+newDimension()+"/?random"));
-
-        pics.add(new Pic("https://picsum.photos/"+newDimension()+"/"+newDimension()+"/?random"));
-
-        pics.add(new Pic("https://picsum.photos/"+newDimension()+"/"+newDimension()+"/?random"));
-        pics.add(new Pic("https://picsum.photos/"+newDimension()+"/"+newDimension()+"/?random"));
-
-        pics.add(new Pic("https://picsum.photos/"+newDimension()+"/"+newDimension()+"/?random"));
-
-        pics.add(new Pic("https://picsum.photos/"+newDimension()+"/"+newDimension()+"/?random"));
-
-        pics.add(new Pic("https://picsum.photos/"+newDimension()+"/"+newDimension()+"/?random"));
-
-        pics.add(new Pic("https://picsum.photos/"+newDimension()+"/"+newDimension()+"/?random"));
-
-        pics.add(new Pic("https://picsum.photos/"+newDimension()+"/"+newDimension()+"/?random"));
-
-        pics.add(new Pic("https://picsum.photos/"+newDimension()+"/"+newDimension()+"/?random"));
-
-        pics.add(new Pic("https://picsum.photos/"+newDimension()+"/"+newDimension()+"/?random"));
-
-        pics.add(new Pic("https://picsum.photos/"+newDimension()+"/"+newDimension()+"/?random"));
-
-        pics.add(new Pic("https://picsum.photos/"+newDimension()+"/"+newDimension()+"/?random"));
-        pics.add(new Pic("https://picsum.photos/"+newDimension()+"/"+newDimension()+"/?random"));
-
-        pics.add(new Pic("https://picsum.photos/"+newDimension()+"/"+newDimension()+"/?random"));
-
-        pics.add(new Pic("https://picsum.photos/"+newDimension()+"/"+newDimension()+"/?random"));
-
-        pics.add(new Pic("https://picsum.photos/"+newDimension()+"/"+newDimension()+"/?random"));
-
-        pics.add(new Pic("https://picsum.photos/"+newDimension()+"/"+newDimension()+"/?random"));
-
-        pics.add(new Pic("https://picsum.photos/"+newDimension()+"/"+newDimension()+"/?random"));
-
-        pics.add(new Pic("https://picsum.photos/"+newDimension()+"/"+newDimension()+"/?random"));
-
-        pics.add(new Pic("https://picsum.photos/"+newDimension()+"/"+newDimension()+"/?random"));
-
-        pics.add(new Pic("https://picsum.photos/"+newDimension()+"/"+newDimension()+"/?random"));
-
-        pics.add(new Pic("https://picsum.photos/"+newDimension()+"/"+newDimension()+"/?random"));
         return pics;
     }
+
+    public List<String> urlIntoUrlList(){
+        for (int a = 0; a < pics.size(); a++){
+            urlList.add(a,Pic.getUrl());
+        }
+return urlList
+    }
+
+
+    //public  static  List<Pic> getOldPics() {
+
+      //  for (int i = 0; i < urlList.size(); i++) {
+
+
+        //    oldPics.add(new Pic(urlList.get(i)));
+
+
+       // }
+
+      //  return oldPics;
+   // }
+
+
+
+
+  //   @Override
+   // protected void onSaveInstanceState(Bundle outState){
+    //    super.onSaveInstanceState(outState);
+    //    outState.putStringArrayList("listofUrls", urlList);
+
+
+//}
+
 
 
 }
