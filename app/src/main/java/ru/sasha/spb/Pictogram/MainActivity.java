@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
             }
         };
 
-        if (savedInstanceState!=null){
+        if (urlList.size()>0){
             recyclerView.setAdapter(new PicAdapter(getOldPics(), onItemClickListener));
         }else {
             recyclerView.setAdapter(new PicAdapter(generatePics(), onItemClickListener));
