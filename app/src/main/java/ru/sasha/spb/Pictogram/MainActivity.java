@@ -96,10 +96,10 @@ public class MainActivity extends AppCompatActivity {
 
     public  static List<Pic> getOldPics() {
 
-        for (int i = 0; i < urlList.size(); i++) {
+        for (int z = 0; z < urlList.size(); z++) {
 
 
-           oldPics.add(new Pic(urlList.get(i)));
+           oldPics.add(new Pic(urlList.get(z)));
 
 
         }
