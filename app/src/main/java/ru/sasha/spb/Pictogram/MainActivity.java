@@ -15,7 +15,7 @@ public class MainActivity extends AppCompatActivity {
 
     public static ArrayList<Pic> pics = new ArrayList<>();
     public static ArrayList<Pic>  oldPics = new ArrayList<>();
-    public  ArrayList<String> urlList =new ArrayList<>();
+    public static ArrayList<String> urlList =new ArrayList<>();
 
 
     @Override
@@ -46,11 +46,11 @@ public class MainActivity extends AppCompatActivity {
             }
         };
 
-      //  if (savedInstanceState!=null){
-      //      recyclerView.setAdapter(new PicAdapter(getOldPics(), onItemClickListener));
-      //  }else {
+       if (savedInstanceState!=null){
+          recyclerView.setAdapter(new PicAdapter(getOldPics(), onItemClickListener));
+        }else {
             recyclerView.setAdapter(new PicAdapter(generatePics(), onItemClickListener));
-       // }
+        }
 
     }
 
@@ -68,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
     public  static  List<Pic> generatePics() {
 
 
-        pics.add(new Pic("https://picsum.photos/" + newDimension() + "/" + newDimension() + "/?random"));
+      /*  pics.add(new Pic("https://picsum.photos/" + newDimension() + "/" + newDimension() + "/?random"));
        // urlList.add( Pic.getUrl());
         pics.add(new Pic("https://picsum.photos/" + newDimension() + "/" + newDimension() + "/?random"));
       //  urlList.add( Pic.getUrl());
@@ -77,42 +77,46 @@ public class MainActivity extends AppCompatActivity {
         pics.add(new Pic("https://picsum.photos/" + newDimension() + "/" + newDimension() + "/?random"));
        // urlList.add( Pic.getUrl());
         pics.add(new Pic("https://picsum.photos/" + newDimension() + "/" + newDimension() + "/?random"));
-        //urlList.add( Pic.getUrl());
+        //urlList.add( Pic.getUrl());*/
+
+        // }
+        for (int a = 0; a < 2; a++){
+
+            Pic pic = new Pic("https://picsum.photos/" + newDimension() + "/" + newDimension() + "/?random");
+            pics.add(a,pic);
+            urlList.add(a, pic.getUrl());
+
+        }
+
 
         return pics;
     }
 
-    public List<String> urlIntoUrlList(){
-        for (int a = 0; a < pics.size(); a++){
-            urlList.add(a,Pic.getUrl());
+
+
+    public  static List<Pic> getOldPics() {
+
+        for (int i = 0; i < urlList.size(); i++) {
+
+
+           oldPics.add(new Pic(urlList.get(i)));
+
+
         }
-return urlList;
+
+       return oldPics;
     }
 
 
-    //public  static  List<Pic> getOldPics() {
-
-      //  for (int i = 0; i < urlList.size(); i++) {
 
 
-        //    oldPics.add(new Pic(urlList.get(i)));
+   @Override
+    protected void onSaveInstanceState(Bundle outState){
+      super.onSaveInstanceState(outState);
+        outState.putStringArrayList("listofUrls", urlList);
 
 
-       // }
-
-      //  return oldPics;
-   // }
-
-
-
-
-  //   @Override
-   // protected void onSaveInstanceState(Bundle outState){
-    //    super.onSaveInstanceState(outState);
-    //    outState.putStringArrayList("listofUrls", urlList);
-
-
-//}
+}
 
 
 
