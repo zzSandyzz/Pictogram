@@ -14,20 +14,16 @@ import java.util.Random;
 public class MainActivity extends AppCompatActivity {
 
     public static ArrayList<Pic> pics = new ArrayList<>();
-    public static ArrayList<Pic>  oldPics = new ArrayList<>();
-    public static ArrayList<String> urlList =new ArrayList<>();
 
+    public static ArrayList<String> urlList =new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
         RecyclerView recyclerView = findViewById(R.id.recyclerView);
         RecyclerView.LayoutManager layoutManager;
-
-
 
         layoutManager = new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
 
@@ -46,41 +42,30 @@ public class MainActivity extends AppCompatActivity {
             }
         };
 
-       if (savedInstanceState!=null){
-          recyclerView.setAdapter(new PicAdapter(getOldPics(), onItemClickListener));
+        if (savedInstanceState!=null){
+            recyclerView.setAdapter(new PicAdapter(getOldPics(), onItemClickListener));
         }else {
             recyclerView.setAdapter(new PicAdapter(generatePics(), onItemClickListener));
+
         }
 
     }
 
     public static int newDimension(){
 
-       Random random=new Random();
+        Random random=new Random();
 
-       int a = 100 + random.nextInt(500-100);
+        int a = 100 + random.nextInt(500-100);
 
         return a;
     }
-
 
     @NonNull
     public  static  List<Pic> generatePics() {
 
 
-      /*  pics.add(new Pic("https://picsum.photos/" + newDimension() + "/" + newDimension() + "/?random"));
-       // urlList.add( Pic.getUrl());
-        pics.add(new Pic("https://picsum.photos/" + newDimension() + "/" + newDimension() + "/?random"));
-      //  urlList.add( Pic.getUrl());
-        pics.add(new Pic("https://picsum.photos/" + newDimension() + "/" + newDimension() + "/?random"));
-       // urlList.add( Pic.getUrl());
-        pics.add(new Pic("https://picsum.photos/" + newDimension() + "/" + newDimension() + "/?random"));
-       // urlList.add( Pic.getUrl());
-        pics.add(new Pic("https://picsum.photos/" + newDimension() + "/" + newDimension() + "/?random"));
-        //urlList.add( Pic.getUrl());*/
 
-        // }
-        for (int a = 0; a < 2; a++){
+        for (int a = 0; a < 200; a++){
 
             Pic pic = new Pic("https://picsum.photos/" + newDimension() + "/" + newDimension() + "/?random");
             pics.add(a,pic);
@@ -88,36 +73,21 @@ public class MainActivity extends AppCompatActivity {
 
         }
 
-
         return pics;
     }
 
 
 
     public  static List<Pic> getOldPics() {
-
+        ArrayList<Pic>  oldPics = new ArrayList<>();
         for (int z = 0; z < urlList.size(); z++) {
 
-
-           oldPics.add(new Pic(urlList.get(z)));
-
+            oldPics.add(new Pic(urlList.get(z)));
 
         }
 
-       return oldPics;
+        return oldPics;
     }
-
-
-
-
-   @Override
-    protected void onSaveInstanceState(Bundle outState){
-      super.onSaveInstanceState(outState);
-        outState.putStringArrayList("listofUrls", urlList);
-
-
-}
-
 
 
 }

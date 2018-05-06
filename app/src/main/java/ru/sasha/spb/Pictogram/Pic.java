@@ -12,7 +12,5 @@ public class Pic {
     }
 
     @NonNull
-    public  String getUrl() {
-        return url;
-    }
+    public  String getUrl() { return url; }
 }

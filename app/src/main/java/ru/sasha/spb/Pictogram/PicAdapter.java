@@ -57,7 +57,6 @@ public class PicAdapter extends RecyclerView.Adapter<PicAdapter.PicHolder> {
 
             }
 
-
             @Override
             public void onError(Exception e) {
 
